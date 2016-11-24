@@ -1,0 +1,127 @@
+# baseURI: http://w3id.org/abdn/prism/ontology/
+
+@prefix : <http://w3id.org/abdn/prism/ontology/> .
+@prefix prism: <http://w3id.org/abdn/prism/ontology/> .
+@prefix dbr: <http://dbpedia.org/resource/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix var: <http://openprovenance.org/var#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sioc: <http://rdfs.org/sioc/ns#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix tmpl: <http://openprovenance.org/tmpl#> .
+@prefix vargen: <http://openprovenance.org/vargen#> .
+
+
+prism:
+  rdf:type owl:Ontology ;
+  owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
+.
+
+
+
+
+_:genid31 a owl:Restriction ;
+	owl:onProperty prov:used ;
+	owl:allValuesFrom dbr:dataset .
+	
+prism:analysisMethodUsed a owl:ObjectProperty.
+	
+_:genid32 a owl:Restriction ;
+		owl:onProperty prism:analysisMethodUsed ;
+		owl:allValuesFrom prism:DataAnalysisMethod .
+
+prism:DataAnalysisMethod a owl:Class.		
+		
+prism:usedDataFrom a owl:ObjectProperty. 
+
+_:genid33 a owl:Restriction ;
+	owl:onProperty prism:usedDataFrom ;
+	owl:allValuesFrom prism:DataPreparationActivity .		
+	
+prism:DataAnalysisActivity a owl:Class; rdfs:subClassOf  _:genid31, _:genid32, _:genid33 .
+
+prism:collectedFromService a owl:DatatypeProperty.
+prism:collectedUsing a owl:ObjectProperty; rdfs:range prism:DataCollectionTool.
+
+prism:DataCollectionTool a owl:Class.
+
+prism:dataCollectionStarted  a owl:DatatypeProperty; rdfs:range xsd:date .
+prism:dataCollectionEnded  a owl:DatatypeProperty; rdfs:range xsd:dateTime .
+
+prism:DataCollectionActivity a owl:Class; rdfs:subClassOf _:genid24, _:genid25 .
+
+_:genid24 a owl:Restriction ;
+	owl:onProperty prism:dataCollectionEnded ;
+	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+	owl:onDataRange owl:rational .
+
+_:genid25 a owl:Restriction ;
+	owl:onProperty prism:dataCollectionStarted ;
+	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+	owl:onDataRange owl:rational .	
+	
+	
+_:genid11 a owl:Restriction ;
+	owl:onProperty prov:used ;
+	owl:allValuesFrom dbr:dataset .
+	
+_:genid12 a owl:Restriction ;
+	owl:onProperty prism:preparationMethodUsed ;
+	owl:allValuesFrom prism:DataPreparationMethod .	
+	
+prism:DataPreparationActivity a owl:Class; rdfs:subClassOf  _:genid11, _:genid12 .
+
+prism:DataPreparationMethod a owl:Class .
+
+prism:trimLeadingTrailingWhitespace 
+    rdf:type prism:DataPreparationMethod;
+	skos:prefLabel "Trim leading and trailing whitespace" .
+	
+prism:collapseConsecutiveWhitespace 
+    rdf:type prism:DataPreparationMethod;
+	skos:prefLabel "Collapse consecutive whitespace" .
+		
+prism:unescapeHtmlEntities 
+    rdf:type prism:DataPreparationMethod;
+	skos:prefLabel "Unescape HTML entities" .
+	
+prism:toTitlecase 
+    rdf:type prism:DataPreparationMethod;
+	skos:prefLabel "Convert text to titlecase".
+
+prism:toUppercase 
+    rdf:type prism:DataPreparationMethod;
+	skos:prefLabel "Convert text to uppercase".	
+
+prism:toLowercase 
+    rdf:type prism:DataPreparationMethod;
+	skos:prefLabel "Convert text to lowercase".	
+
+prism:toNumber 
+    rdf:type prism:DataPreparationMethod;
+	skos:prefLabel "Convert text to number".
+	
+prism:toDate 
+    rdf:type prism:DataPreparationMethod;
+	skos:prefLabel "Convert text to  date".
+
+prism:toText 
+    rdf:type prism:DataPreparationMethod;
+	skos:prefLabel "Convert to text".
+	
+prism:textTransformation 
+    rdf:type prism:DataPreparationMethod;
+	skos:prefLabel "Transform text".
+	
+prism:removeData 
+    rdf:type prism:DataPreparationMethod;
+	skos:prefLabel "Remove data".
+
+prism:filterData 
+    rdf:type prism:DataPreparationMethod;
+	skos:prefLabel "Filter data".
