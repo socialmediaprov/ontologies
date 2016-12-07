@@ -1,7 +1,7 @@
-# baseURI: http://w3id.org/abdn/socialmedia/
+# baseURI: http://w3id.org/abdn/socialmedia/prism
 
-@prefix : <http://w3id.org/abdn/socialmedia/> .
-@prefix prism: <http://w3id.org/abdn/socialmedia/> .
+@prefix : <http://w3id.org/abdn/socialmedia/prism> .
+@prefix prism: <http://w3id.org/abdn/socialmedia/prism> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dbr: <http://dbpedia.org/resource/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
