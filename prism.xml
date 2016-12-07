@@ -1,150 +1,456 @@
-<rdf:RDF
-    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-    xmlns:tmpl="http://openprovenance.org/tmpl#"
-    xmlns:var="http://openprovenance.org/var#"
-    xmlns:dbr="http://dbpedia.org/resource/"
-    xmlns:vargen="http://openprovenance.org/vargen#"
-    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-    xmlns:prism="http://w3id.org/abdn/prism/ontology/"
-    xmlns:owl="http://www.w3.org/2002/07/owl#"
-    xmlns:prov="http://www.w3.org/ns/prov#"
-    xmlns:sioc="http://rdfs.org/sioc/ns#"
-    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
-    xmlns:foaf="http://xmlns.com/foaf/0.1/"
-    xmlns:xsd="http://www.w3.org/2001/XMLSchema#" > 
-  <rdf:Description rdf:about="http://w3id.org/abdn/prism/ontology/dataCollectionEnded">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://w3id.org/abdn/prism/ontology/toTitlecase">
-    <skos:prefLabel>Convert text to titlecase</skos:prefLabel>
-    <rdf:type rdf:resource="http://w3id.org/abdn/prism/ontology/DataPreparationMethod"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://w3id.org/abdn/prism/ontology/trimLeadingTrailingWhitespace">
-    <skos:prefLabel>Trim leading and trailing whitespace</skos:prefLabel>
-    <rdf:type rdf:resource="http://w3id.org/abdn/prism/ontology/DataPreparationMethod"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://w3id.org/abdn/prism/ontology/toText">
-    <skos:prefLabel>Convert to text</skos:prefLabel>
-    <rdf:type rdf:resource="http://w3id.org/abdn/prism/ontology/DataPreparationMethod"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A0">
-    <owl:allValuesFrom rdf:resource="http://w3id.org/abdn/prism/ontology/DataPreparationMethod"/>
-    <owl:onProperty rdf:resource="http://w3id.org/abdn/prism/ontology/preparationMethodUsed"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://w3id.org/abdn/prism/ontology/DataAnalysisMethod">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A1">
-    <owl:onDataRange rdf:resource="http://www.w3.org/2002/07/owl#rational"/>
-    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-    <owl:onProperty rdf:resource="http://w3id.org/abdn/prism/ontology/dataCollectionStarted"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://w3id.org/abdn/prism/ontology/toDate">
-    <skos:prefLabel>Convert text to  date</skos:prefLabel>
-    <rdf:type rdf:resource="http://w3id.org/abdn/prism/ontology/DataPreparationMethod"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://w3id.org/abdn/prism/ontology/analysisMethodUsed">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://w3id.org/abdn/prism/ontology/DataCollectionActivity">
-    <rdfs:subClassOf rdf:nodeID="A1"/>
-    <rdfs:subClassOf rdf:nodeID="A2"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://w3id.org/abdn/prism/ontology/">
-    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Created with TopBraid Composer</owl:versionInfo>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A3">
-    <owl:allValuesFrom rdf:resource="http://w3id.org/abdn/prism/ontology/DataPreparationActivity"/>
-    <owl:onProperty rdf:resource="http://w3id.org/abdn/prism/ontology/usedDataFrom"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A4">
-    <owl:allValuesFrom rdf:resource="http://dbpedia.org/resource/dataset"/>
-    <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#used"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://w3id.org/abdn/prism/ontology/collectedFromService">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://w3id.org/abdn/prism/ontology/unescapeHtmlEntities">
-    <skos:prefLabel>Unescape HTML entities</skos:prefLabel>
-    <rdf:type rdf:resource="http://w3id.org/abdn/prism/ontology/DataPreparationMethod"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://w3id.org/abdn/prism/ontology/dataCollectionStarted">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://w3id.org/abdn/prism/ontology/toNumber">
-    <skos:prefLabel>Convert text to number</skos:prefLabel>
-    <rdf:type rdf:resource="http://w3id.org/abdn/prism/ontology/DataPreparationMethod"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://w3id.org/abdn/prism/ontology/toLowercase">
-    <skos:prefLabel>Convert text to lowercase</skos:prefLabel>
-    <rdf:type rdf:resource="http://w3id.org/abdn/prism/ontology/DataPreparationMethod"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://w3id.org/abdn/prism/ontology/toUppercase">
-    <skos:prefLabel>Convert text to uppercase</skos:prefLabel>
-    <rdf:type rdf:resource="http://w3id.org/abdn/prism/ontology/DataPreparationMethod"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://w3id.org/abdn/prism/ontology/textTransformation">
-    <skos:prefLabel>Transform text</skos:prefLabel>
-    <rdf:type rdf:resource="http://w3id.org/abdn/prism/ontology/DataPreparationMethod"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A5">
-    <owl:allValuesFrom rdf:resource="http://dbpedia.org/resource/dataset"/>
-    <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#used"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A2">
-    <owl:onDataRange rdf:resource="http://www.w3.org/2002/07/owl#rational"/>
-    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-    <owl:onProperty rdf:resource="http://w3id.org/abdn/prism/ontology/dataCollectionEnded"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://w3id.org/abdn/prism/ontology/DataCollectionTool">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://w3id.org/abdn/prism/ontology/removeData">
-    <skos:prefLabel>Remove data</skos:prefLabel>
-    <rdf:type rdf:resource="http://w3id.org/abdn/prism/ontology/DataPreparationMethod"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://w3id.org/abdn/prism/ontology/DataPreparationMethod">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://w3id.org/abdn/prism/ontology/DataPreparationActivity">
-    <rdfs:subClassOf rdf:nodeID="A0"/>
-    <rdfs:subClassOf rdf:nodeID="A5"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://w3id.org/abdn/prism/ontology/usedDataFrom">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://w3id.org/abdn/prism/ontology/DataAnalysisActivity">
-    <rdfs:subClassOf rdf:nodeID="A3"/>
-    <rdfs:subClassOf rdf:nodeID="A6"/>
-    <rdfs:subClassOf rdf:nodeID="A4"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A6">
-    <owl:allValuesFrom rdf:resource="http://w3id.org/abdn/prism/ontology/DataAnalysisMethod"/>
-    <owl:onProperty rdf:resource="http://w3id.org/abdn/prism/ontology/analysisMethodUsed"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://w3id.org/abdn/prism/ontology/collectedUsing">
-    <rdfs:range rdf:resource="http://w3id.org/abdn/prism/ontology/DataCollectionTool"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://w3id.org/abdn/prism/ontology/filterData">
-    <skos:prefLabel>Filter data</skos:prefLabel>
-    <rdf:type rdf:resource="http://w3id.org/abdn/prism/ontology/DataPreparationMethod"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://w3id.org/abdn/prism/ontology/collapseConsecutiveWhitespace">
-    <skos:prefLabel>Collapse consecutive whitespace</skos:prefLabel>
-    <rdf:type rdf:resource="http://w3id.org/abdn/prism/ontology/DataPreparationMethod"/>
-  </rdf:Description>
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY sioc "http://rdfs.org/sioc/ns#" >
+    <!ENTITY prov "http://www.w3.org/ns/prov#" >
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/" >
+    <!ENTITY dbr "http://dbpedia.org/resource/" >
+    <!ENTITY var "http://openprovenance.org/var#" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY tmpl "http://openprovenance.org/tmpl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY vargen "http://openprovenance.org/vargen#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+    <!ENTITY skos "http://www.w3.org/2004/02/skos/core#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY prism "http://w3id.org/abdn/socialmedia/prism#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://w3id.org/abdn/socialmedia/prism#"
+     xml:base="http://w3id.org/abdn/socialmedia/prism"
+     xmlns:vargen="http://openprovenance.org/vargen#"
+     xmlns:tmpl="http://openprovenance.org/tmpl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:var="http://openprovenance.org/var#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:dbr="http://dbpedia.org/resource/"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:prov="http://www.w3.org/ns/prov#"
+     xmlns:prism="http://w3id.org/abdn/socialmedia/prism#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:sioc="http://rdfs.org/sioc/ns#">
+    <owl:Ontology rdf:about="http://w3id.org/abdn/socialmedia/prism#">
+        <rdfs:label>The Provenance of Research Involving Social Media ontology</rdfs:label>
+        <dc:creator rdf:datatype="&xsd;string">David Corsar</dc:creator>
+        <dc:rights rdf:datatype="&xsd;string">Licensed under the Lesser General Public Licence (LGPL) Version 2.1 (http://www.gnu.org/licenses/lgpl-2.1.html)</dc:rights>
+        <dc:creator rdf:datatype="&xsd;string">Milan Markovic</dc:creator>
+        <owl:versionInfo rdf:datatype="&xsd;string">Revision: 0.1</owl:versionInfo>
+        <dc:title rdf:datatype="&xsd;string">The Provenance of Research Involving Social Media ontology</dc:title>
+        <dc:description xml:lang="en">This ontology is designed to capture provenance meta-data describing the use of social media data in research projects.</dc:description>
+        <rdfs:comment xml:lang="en">This ontology is designed to capture provenance meta-data describing the use of social media data in research projects.</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#prefLabel -->
+
+    <owl:AnnotationProperty rdf:about="&skos;prefLabel"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+    <rdfs:Datatype rdf:about="&xsd;date"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://w3id.org/abdn/socialmedia/prism#analysisMethodUsed -->
+
+    <owl:ObjectProperty rdf:about="&prism;analysisMethodUsed">
+        <rdfs:label>analysis method used</rdfs:label>
+        <rdfs:comment xml:lang="en">Relationship between a data analysis activity and the analysis method used.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://w3id.org/abdn/socialmedia/prism#collectedUsing -->
+
+    <owl:ObjectProperty rdf:about="&prism;collectedUsing">
+        <rdfs:label>collected Using</rdfs:label>
+        <rdfs:comment xml:lang="en">Relationship between a dataset and a tool that was used to collect the data.</rdfs:comment>
+        <rdfs:range rdf:resource="&prism;DataCollectionTool"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://w3id.org/abdn/socialmedia/prism#preparationMethodUsed -->
+
+    <owl:ObjectProperty rdf:about="&prism;preparationMethodUsed"/>
+    
+
+
+    <!-- http://w3id.org/abdn/socialmedia/prism#usedDataFrom -->
+
+    <owl:ObjectProperty rdf:about="&prism;usedDataFrom"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#used -->
+
+    <owl:ObjectProperty rdf:about="&prov;used"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://w3id.org/abdn/socialmedia/prism#collectedFromService -->
+
+    <owl:DatatypeProperty rdf:about="&prism;collectedFromService">
+        <rdfs:label>collected From Service</rdfs:label>
+        <rdfs:comment xml:lang="en">Relationship between a dataset and a service/website that the data was collected from.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://w3id.org/abdn/socialmedia/prism#dataCollectionEnded -->
+
+    <owl:DatatypeProperty rdf:about="&prism;dataCollectionEnded">
+        <rdfs:label>data Collection Ended</rdfs:label>
+        <rdfs:comment xml:lang="en">The date that the activity of collected data ended.</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://w3id.org/abdn/socialmedia/prism#dataCollectionStarted -->
+
+    <owl:DatatypeProperty rdf:about="&prism;dataCollectionStarted">
+        <rdfs:label>data Collection Started</rdfs:label>
+        <rdfs:comment xml:lang="en">The date that the activity of collected data started.</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://w3id.org/abdn/socialmedia/prism#preparationMethodUsed -->
+
+    <owl:DatatypeProperty rdf:about="&prism;preparationMethodUsed"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://dbpedia.org/resource/dataset -->
+
+    <owl:Class rdf:about="&dbr;dataset"/>
+    
+
+
+    <!-- http://w3id.org/abdn/socialmedia/prism#DataAnalysisActivity -->
+
+    <owl:Class rdf:about="&prism;DataAnalysisActivity">
+        <rdfs:label>Data analysis activity</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&prov;used"/>
+                <owl:allValuesFrom rdf:resource="&dbr;dataset"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&prism;analysisMethodUsed"/>
+                <owl:allValuesFrom rdf:resource="&prism;DataAnalysisMethod"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&prism;usedDataFrom"/>
+                <owl:allValuesFrom rdf:resource="&prism;DataPreparationActivity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The activity of performing some form of data analysis</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://w3id.org/abdn/socialmedia/prism#DataAnalysisMethod -->
+
+    <owl:Class rdf:about="&prism;DataAnalysisMethod">
+        <rdfs:label>Data analysis method</rdfs:label>
+        <rdfs:comment xml:lang="en">A method utilised to analyse data.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://w3id.org/abdn/socialmedia/prism#DataCollectionActivity -->
+
+    <owl:Class rdf:about="&prism;DataCollectionActivity">
+        <rdfs:label>Data Collection Activity</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&prism;dataCollectionStarted"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&owl;rational"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&prism;dataCollectionEnded"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&owl;rational"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The activity of collecting data.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://w3id.org/abdn/socialmedia/prism#DataCollectionTool -->
+
+    <owl:Class rdf:about="&prism;DataCollectionTool">
+        <rdfs:label>Data Collection Tool</rdfs:label>
+        <rdfs:comment xml:lang="en">A (software) tool used to collect data.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://w3id.org/abdn/socialmedia/prism#DataPreparationActivity -->
+
+    <owl:Class rdf:about="&prism;DataPreparationActivity">
+        <rdfs:label>Data Preparation Activity</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&prism;preparationMethodUsed"/>
+                <owl:allValuesFrom rdf:resource="&prism;DataPreparationMethod"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&prov;used"/>
+                <owl:allValuesFrom rdf:resource="&dbr;dataset"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The activity of preparing data, typically before or in-order-to perform some analysis.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://w3id.org/abdn/socialmedia/prism#DataPreparationMethod -->
+
+    <owl:Class rdf:about="&prism;DataPreparationMethod">
+        <rdfs:label>Data Preparation Method</rdfs:label>
+        <rdfs:comment xml:lang="en">A method/technique used to prepare data in some way for analysis.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://w3id.org/abdn/socialmedia/prism#collapseConsecutiveWhitespace -->
+
+    <owl:NamedIndividual rdf:about="&prism;collapseConsecutiveWhitespace">
+        <rdf:type rdf:resource="&prism;DataPreparationMethod"/>
+        <rdfs:label>Collapse consecutive whitespace</rdfs:label>
+        <skos:prefLabel>Collapse consecutive whitespace</skos:prefLabel>
+        <rdfs:comment xml:lang="en">Data preparation method in which multiple whitespace characters are reduced to a single character.   Based on transformation of the same label in OpenRefine.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://w3id.org/abdn/socialmedia/prism#filterData -->
+
+    <owl:NamedIndividual rdf:about="&prism;filterData">
+        <rdf:type rdf:resource="&prism;DataPreparationMethod"/>
+        <rdfs:label>Filter data</rdfs:label>
+        <rdfs:comment xml:lang="en">Data preparation method in which a subset of a a dataset is created based on filtering data in the original.</rdfs:comment>
+        <skos:prefLabel>Filter data</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://w3id.org/abdn/socialmedia/prism#removeData -->
+
+    <owl:NamedIndividual rdf:about="&prism;removeData">
+        <rdf:type rdf:resource="&prism;DataPreparationMethod"/>
+        <rdfs:label>Remove data</rdfs:label>
+        <skos:prefLabel>Remove data</skos:prefLabel>
+        <rdfs:comment xml:lang="en">Data preparation method in which data is removed from a dataset.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://w3id.org/abdn/socialmedia/prism#textTransformation -->
+
+    <owl:NamedIndividual rdf:about="&prism;textTransformation">
+        <rdf:type rdf:resource="&prism;DataPreparationMethod"/>
+        <rdfs:label>Transform text</rdfs:label>
+        <skos:prefLabel>Transform text</skos:prefLabel>
+        <rdfs:comment xml:lang="en">Data preparation method in which text is transformed.   Based on transformation of the same name in OpenRefine.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://w3id.org/abdn/socialmedia/prism#toDate -->
+
+    <owl:NamedIndividual rdf:about="&prism;toDate">
+        <rdf:type rdf:resource="&prism;DataPreparationMethod"/>
+        <rdfs:label>Convert text to  date</rdfs:label>
+        <skos:prefLabel>Convert text to  date</skos:prefLabel>
+        <rdfs:comment xml:lang="en">Data preparation method in which the type of a datum is changed from text to date.   Based on transformation of the same label in OpenRefine.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://w3id.org/abdn/socialmedia/prism#toLowercase -->
+
+    <owl:NamedIndividual rdf:about="&prism;toLowercase">
+        <rdf:type rdf:resource="&prism;DataPreparationMethod"/>
+        <rdfs:label>Convert text to lowercase</rdfs:label>
+        <skos:prefLabel>Convert text to lowercase</skos:prefLabel>
+        <rdfs:comment xml:lang="en">Data preparation method in which text is converted to lowercase.   Based on transformation of the same label in OpenRefine.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://w3id.org/abdn/socialmedia/prism#toNumber -->
+
+    <owl:NamedIndividual rdf:about="&prism;toNumber">
+        <rdf:type rdf:resource="&prism;DataPreparationMethod"/>
+        <rdfs:label>Convert text to number</rdfs:label>
+        <skos:prefLabel>Convert text to number</skos:prefLabel>
+        <rdfs:comment xml:lang="en">Data preparation method in which the type of a datum is changed from text to number.   Based on transformation of the same label in OpenRefine.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://w3id.org/abdn/socialmedia/prism#toText -->
+
+    <owl:NamedIndividual rdf:about="&prism;toText">
+        <rdf:type rdf:resource="&prism;DataPreparationMethod"/>
+        <rdfs:label>Convert to text</rdfs:label>
+        <skos:prefLabel>Convert to text</skos:prefLabel>
+        <rdfs:comment xml:lang="en">Data preparation method in which the type of a datum is changed to text.   Based on transformation of the same name in OpenRefine.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://w3id.org/abdn/socialmedia/prism#toTitlecase -->
+
+    <owl:NamedIndividual rdf:about="&prism;toTitlecase">
+        <rdf:type rdf:resource="&prism;DataPreparationMethod"/>
+        <rdfs:label>Convert text to titlecase</rdfs:label>
+        <skos:prefLabel>Convert text to titlecase</skos:prefLabel>
+        <rdfs:comment xml:lang="en">Data preparation method in which text is converted to title case.   Based on transformation of the same label in OpenRefine.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://w3id.org/abdn/socialmedia/prism#toUppercase -->
+
+    <owl:NamedIndividual rdf:about="&prism;toUppercase">
+        <rdf:type rdf:resource="&prism;DataPreparationMethod"/>
+        <rdfs:label>Convert text to uppercase</rdfs:label>
+        <skos:prefLabel>Convert text to uppercase</skos:prefLabel>
+        <rdfs:comment xml:lang="en">Data preparation method in which text is converted to uppercase.   Based on transformation of the same label in OpenRefine.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://w3id.org/abdn/socialmedia/prism#trimLeadingTrailingWhitespace -->
+
+    <owl:NamedIndividual rdf:about="&prism;trimLeadingTrailingWhitespace">
+        <rdf:type rdf:resource="&prism;DataPreparationMethod"/>
+        <rdfs:label>Trim leading and trailing whitespace</rdfs:label>
+        <rdfs:comment xml:lang="en">Data preparation method in which leading and trailing whitespace are removed from a piece of text.  Based on transformation of the same label in OpenRefine.</rdfs:comment>
+        <skos:prefLabel>Trim leading and trailing whitespace</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://w3id.org/abdn/socialmedia/prism#unescapeHtmlEntities -->
+
+    <owl:NamedIndividual rdf:about="&prism;unescapeHtmlEntities">
+        <rdf:type rdf:resource="&prism;DataPreparationMethod"/>
+        <rdfs:label>Unescape HTML entities</rdfs:label>
+        <skos:prefLabel>Unescape HTML entities</skos:prefLabel>
+        <rdfs:comment xml:lang="en">Data preparation method in which escaped HTML characters (e.g. &amp;amp;amp;) are unescaped (e..g back to &amp;amp;).   Based on transformation of the same label in OpenRefine.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="&prism;preparationMethodUsed">
+        <rdfs:label>preparation Method Used</rdfs:label>
+        <rdfs:comment xml:lang="en">Relationship between a data preparation activity and the preparation method/technique used.</rdfs:comment>
+    </rdf:Description>
 </rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net -->
+
