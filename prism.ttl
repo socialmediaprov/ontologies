@@ -16,6 +16,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix tmpl: <http://openprovenance.org/tmpl#> .
 @prefix vargen: <http://openprovenance.org/vargen#> .
+@prefix ns1: <http://web.resource.org/cc/> .
 
 
 prism:
@@ -26,8 +27,9 @@ prism:
   rdfs:comment """This ontology is designed to capture provenance meta-data describing the use of social media data in research projects."""@en;
   dc:creator "David Corsar"^^xsd:string ;
   dc:creator "Milan Markovic"^^xsd:string ;
-  dc:rights "Licensed under the Lesser General Public Licence (LGPL) Version 2.1 (http://www.gnu.org/licenses/lgpl-2.1.html)"^^xsd:string ;
+  dc:rights "Copyright © 2015 University of Aberdeen"^^xsd:string ;
   owl:versionInfo "Revision: 0.1"^^xsd:string .
+  ns1:license <http://creativecommons.org/licenses/by-sa/3.0/> ;
   
   	
 
