@@ -28,8 +28,8 @@ prism:
   dc:creator "David Corsar"^^xsd:string ;
   dc:creator "Milan Markovic"^^xsd:string ;
   dc:rights "Copyright © 2015 University of Aberdeen"^^xsd:string ;
-  owl:versionInfo "Revision: 0.1"^^xsd:string .
-  ns1:license <http://creativecommons.org/licenses/by-sa/3.0/> ;
+  owl:versionInfo "Revision: 0.1"^^xsd:string ;
+  ns1:license <http://creativecommons.org/licenses/by-sa/3.0/> .
   
   	
 
