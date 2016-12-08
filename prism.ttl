@@ -1,197 +1,205 @@
-# baseURI: http://w3id.org/abdn/socialmedia/prism#
+@prefix :        <http://w3id.org/abdn/socialmedia/prism#> .
+@prefix vargen:  <http://openprovenance.org/vargen#> .
+@prefix tmpl:    <http://openprovenance.org/tmpl#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix var:     <http://openprovenance.org/var#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ns1:     <http://web.resource.org/cc/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dbr:     <http://dbpedia.org/resource/> .
+@prefix xml:     <http://www.w3.org/XML/1998/namespace> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix prism:   <http://w3id.org/abdn/socialmedia/prism#> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix dc:      <http://purl.org/dc/elements/1.1/> .
+@prefix sioc:    <http://rdfs.org/sioc/ns#> .
 
-@prefix : <http://w3id.org/abdn/socialmedia/prism#> .
-@prefix prism: <http://w3id.org/abdn/socialmedia/prism#> .
-@prefix dc: <http://purl.org/dc/elements/1.1/> .
-@prefix dbr: <http://dbpedia.org/resource/> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix var: <http://openprovenance.org/var#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix sioc: <http://rdfs.org/sioc/ns#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix tmpl: <http://openprovenance.org/tmpl#> .
-@prefix vargen: <http://openprovenance.org/vargen#> .
-@prefix ns1: <http://web.resource.org/cc/> .
+prism:collectedUsing
+      a       owl:ObjectProperty ;
+      rdfs:comment "Relationship between a dataset and a tool that was used to collect the data."@en ;
+      rdfs:label "collected Using" ;
+      rdfs:range prism:DataCollectionTool .
 
+prism:toLowercase
+      a       prism:DataPreparationMethod ;
+      rdfs:comment "Data preparation method in which text is converted to lowercase.   Based on transformation of the same label in OpenRefine."@en ;
+      rdfs:label "Convert text to lowercase" ;
+      skos:prefLabel "Convert text to lowercase" .
+
+prism:collectedFromService
+      a       owl:DatatypeProperty ;
+      rdfs:comment "Relationship between a dataset and a service/website that the data was collected from."@en ;
+      rdfs:label "collected From Service" .
+
+prism:removeData
+      a       prism:DataPreparationMethod ;
+      rdfs:comment "Data preparation method in which data is removed from a dataset."@en ;
+      rdfs:label "Remove data" ;
+      skos:prefLabel "Remove data" .
+
+prism:collapseConsecutiveWhitespace
+      a       prism:DataPreparationMethod ;
+      rdfs:comment "Data preparation method in which multiple whitespace characters are reduced to a single character.   Based on transformation of the same label in OpenRefine."@en ;
+      rdfs:label "Collapse consecutive whitespace" ;
+      skos:prefLabel "Collapse consecutive whitespace" .
 
 prism:
-  rdf:type owl:Ontology ;
-  rdfs:label "The Provenance of Research Involving Social Media ontology";
-  dc:title "The Provenance of Research Involving Social Media ontology"^^xsd:string ;	
-  dc:description """This ontology is designed to capture provenance meta-data describing the use of social media data in research projects."""@en;
-  rdfs:comment """This ontology is designed to capture provenance meta-data describing the use of social media data in research projects."""@en;
-  dc:creator "David Corsar"^^xsd:string ;
-  dc:creator "Milan Markovic"^^xsd:string ;
-  dc:rights "Copyright © 2015 University of Aberdeen"^^xsd:string ;
-  owl:versionInfo "Revision: 0.1"^^xsd:string ;
-  ns1:license <http://creativecommons.org/licenses/by-sa/3.0/> .
-  
-  	
+      a       owl:Ontology ;
+      rdfs:comment "This ontology is designed to capture provenance meta-data describing the use of social media data in research projects."@en ;
+      rdfs:label "The Provenance of Research Involving Social Media ontology" ;
+      dc:creator "Milan Markovic"^^xsd:string , "David Corsar"^^xsd:string ;
+      dc:description "This ontology is designed to capture provenance meta-data describing the use of social media data in research projects."@en ;
+      dc:rights "Copyright Â© 2015 University of Aberdeen"^^xsd:string ;
+      dc:title "The Provenance of Research Involving Social Media ontology"^^xsd:string ;
+      ns1:license <https://creativecommons.org/licenses/by/4.0/> ;
+      owl:versionInfo "Revision: 0.1"^^xsd:string .
 
-_:genid31 a owl:Restriction ;
-	owl:onProperty prov:used ;
-	owl:allValuesFrom dbr:dataset .
-	
-prism:analysisMethodUsed a owl:ObjectProperty;
-   rdfs:label "analysis method used";
-   rdfs:comment """Relationship between a data analysis activity and the analysis method used."""@en.
+prism:toDate
+      a       prism:DataPreparationMethod ;
+      rdfs:comment "Data preparation method in which the type of a datum is changed from text to date.   Based on transformation of the same label in OpenRefine."@en ;
+      rdfs:label "Convert text to  date" ;
+      skos:prefLabel "Convert text to  date" .
 
-_:genid32 a owl:Restriction ;
-		owl:onProperty prism:analysisMethodUsed ;
-		owl:allValuesFrom prism:DataAnalysisMethod .
+prism:filterData
+      a       prism:DataPreparationMethod ;
+      rdfs:comment "Data preparation method in which a subset of a a dataset is created based on filtering data in the original."@en ;
+      rdfs:label "Filter data" ;
+      skos:prefLabel "Filter data" .
 
-prism:DataAnalysisMethod a owl:Class;
-rdfs:label "Data analysis method";
-rdfs:comment """A method utilised to analyse data."""@en.		
-		
-prism:usedDataFrom a owl:ObjectProperty. 
+prism:unescapeHtmlEntities
+      a       prism:DataPreparationMethod ;
+      rdfs:comment "Data preparation method in which escaped HTML characters (e.g. &amp;amp;) are unescaped (e..g back to &amp;).   Based on transformation of the same label in OpenRefine."@en ;
+      rdfs:label "Unescape HTML entities" ;
+      skos:prefLabel "Unescape HTML entities" .
 
-_:genid33 a owl:Restriction ;
-	owl:onProperty prism:usedDataFrom ;
-	owl:allValuesFrom prism:DataPreparationActivity .		
-	
-prism:DataAnalysisActivity a owl:Class; rdfs:subClassOf  _:genid31, _:genid32, _:genid33 ;
-rdfs:label "Data analysis activity";
-rdfs:comment """The activity of performing some form of data analysis"""@en.		
+prism:dataCollectionEnded
+      a       owl:DatatypeProperty ;
+      rdfs:comment "The date that the activity of collected data ended."@en ;
+      rdfs:label "data Collection Ended" ;
+      rdfs:range xsd:date .
 
-prism:collectedFromService a owl:DatatypeProperty;
-rdfs:label "collected From Service";
-rdfs:comment """Relationship between a dataset and a service/website that the data was collected from."""@en.		
+prism:toText
+      a       prism:DataPreparationMethod ;
+      rdfs:comment "Data preparation method in which the type of a datum is changed to text.   Based on transformation of the same name in OpenRefine."@en ;
+      rdfs:label "Convert to text" ;
+      skos:prefLabel "Convert to text" .
 
-prism:collectedUsing a owl:ObjectProperty; rdfs:range prism:DataCollectionTool;
-rdfs:label "collected Using";
-rdfs:comment """Relationship between a dataset and a tool that was used to collect the data."""@en.		
+prism:textTransformation
+      a       prism:DataPreparationMethod ;
+      rdfs:comment "Data preparation method in which text is transformed.   Based on transformation of the same name in OpenRefine."@en ;
+      rdfs:label "Transform text" ;
+      skos:prefLabel "Transform text" .
 
-prism:DataCollectionTool a owl:Class;
-   rdfs:label "Data Collection Tool";
-   rdfs:comment """A (software) tool used to collect data."""@en.		
+prism:DataCollectionTool
+      a       owl:Class ;
+      rdfs:comment "A (software) tool used to collect data."@en ;
+      rdfs:label "Data Collection Tool" .
 
-prism:dataCollectionStarted  a owl:DatatypeProperty; rdfs:range xsd:date ;   
-   rdfs:label "data Collection Started";
-   rdfs:comment """The date that the activity of collected data started."""@en.
+prism:toUppercase
+      a       prism:DataPreparationMethod ;
+      rdfs:comment "Data preparation method in which text is converted to uppercase.   Based on transformation of the same label in OpenRefine."@en ;
+      rdfs:label "Convert text to uppercase" ;
+      skos:prefLabel "Convert text to uppercase" .
 
-prism:dataCollectionEnded  a owl:DatatypeProperty; rdfs:range xsd:date;
-   rdfs:label "data Collection Ended";
-   rdfs:comment """The date that the activity of collected data ended."""@en.	
+prism:preparationMethodUsed
+      a       owl:DatatypeProperty ;
+      rdfs:comment "Relationship between a data preparation activity and the preparation method/technique used."@en ;
+      rdfs:label "preparation Method Used" .
 
-prism:DataCollectionActivity a owl:Class; rdfs:subClassOf _:genid24, _:genid25;
-   rdfs:label "Data Collection Activity";
-   rdfs:comment """The activity of collecting data."""@en.		
+prism:DataPreparationMethod
+      a       owl:Class ;
+      rdfs:comment "A method/technique used to prepare data in some way for analysis."@en ;
+      rdfs:label "Data Preparation Method" .
 
-_:genid24 a owl:Restriction ;
-	owl:onProperty prism:dataCollectionEnded ;
-	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-	owl:onDataRange owl:rational .
+prism:DataPreparationActivity
+      a       owl:Class ;
+      rdfs:comment "The activity of preparing data, typically before or in-order-to perform some analysis."@en ;
+      rdfs:label "Data Preparation Activity" ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:allValuesFrom prism:DataPreparationMethod ;
+                owl:onProperty prism:preparationMethodUsed
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:allValuesFrom dbr:dataset ;
+                owl:onProperty prov:used
+              ] .
 
-_:genid25 a owl:Restriction ;
-	owl:onProperty prism:dataCollectionStarted ;
-	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-	owl:onDataRange owl:rational .	
-	
-	
-_:genid11 a owl:Restriction ;
-	owl:onProperty prov:used ;
-	owl:allValuesFrom dbr:dataset .
-	
-_:genid12 a owl:Restriction ;
-	owl:onProperty prism:preparationMethodUsed ;
-	owl:allValuesFrom prism:DataPreparationMethod .	
-	
-prism:DataPreparationActivity a owl:Class; rdfs:subClassOf  _:genid11, _:genid12 ;
-   rdfs:label "Data Preparation Activity";
-   rdfs:comment """The activity of preparing data, typically before or in-order-to perform some analysis."""@en.		
+prism:DataAnalysisMethod
+      a       owl:Class ;
+      rdfs:comment "A method utilised to analyse data."@en ;
+      rdfs:label "Data analysis method" .
 
-prism:preparationMethodUsed a owl:DatatypeProperty;
-   rdfs:label "preparation Method Used";
-   rdfs:comment """Relationship between a data preparation activity and the preparation method/technique used."""@en.	
+prism:trimLeadingTrailingWhitespace
+      a       prism:DataPreparationMethod ;
+      rdfs:comment "Data preparation method in which leading and trailing whitespace are removed from a piece of text.  Based on transformation of the same label in OpenRefine."@en ;
+      rdfs:label "Trim leading and trailing whitespace" ;
+      skos:prefLabel "Trim leading and trailing whitespace" .
 
-prism:DataPreparationMethod a owl:Class ;
-   rdfs:label "Data Preparation Method";
-   rdfs:comment """A method/technique used to prepare data in some way for analysis."""@en.		
+prism:analysisMethodUsed
+      a       owl:ObjectProperty ;
+      rdfs:comment "Relationship between a data analysis activity and the analysis method used."@en ;
+      rdfs:label "analysis method used" .
 
-prism:trimLeadingTrailingWhitespace 
-    rdf:type prism:DataPreparationMethod;
-	rdfs:label "Trim leading and trailing whitespace" ;
-	skos:prefLabel "Trim leading and trailing whitespace" ;
-	rdfs:comment """Data preparation method in which leading and trailing whitespace are removed from a piece of text.  Based on transformation of the same label in OpenRefine."""@en.
-	
-prism:collapseConsecutiveWhitespace 
-    rdf:type prism:DataPreparationMethod;
-	rdfs:label "Collapse consecutive whitespace";
-	skos:prefLabel "Collapse consecutive whitespace" ;
-	rdfs:comment """Data preparation method in which multiple whitespace characters are reduced to a single character.   Based on transformation of the same label in OpenRefine."""@en.
-		
-prism:unescapeHtmlEntities 
-    rdf:type prism:DataPreparationMethod;
-	rdfs:label "Unescape HTML entities" ;
-	skos:prefLabel "Unescape HTML entities" ;
-	rdfs:comment """Data preparation method in which escaped HTML characters (e.g. &amp;amp;) are unescaped (e..g back to &amp;).   Based on transformation of the same label in OpenRefine."""@en.
-	
-	
-prism:toTitlecase 
-    rdf:type prism:DataPreparationMethod;
-	rdfs:label  "Convert text to titlecase";
-	skos:prefLabel "Convert text to titlecase";
-	rdfs:comment """Data preparation method in which text is converted to title case.   Based on transformation of the same label in OpenRefine."""@en.
-	
+prism:toTitlecase
+      a       prism:DataPreparationMethod ;
+      rdfs:comment "Data preparation method in which text is converted to title case.   Based on transformation of the same label in OpenRefine."@en ;
+      rdfs:label "Convert text to titlecase" ;
+      skos:prefLabel "Convert text to titlecase" .
 
-prism:toUppercase 
-    rdf:type prism:DataPreparationMethod;
-	rdfs:label "Convert text to uppercase";
-	skos:prefLabel "Convert text to uppercase";
-	rdfs:comment """Data preparation method in which text is converted to uppercase.   Based on transformation of the same label in OpenRefine."""@en.
-		
+prism:dataCollectionStarted
+      a       owl:DatatypeProperty ;
+      rdfs:comment "The date that the activity of collected data started."@en ;
+      rdfs:label "data Collection Started" ;
+      rdfs:range xsd:date .
 
-prism:toLowercase 
-    rdf:type prism:DataPreparationMethod;
-	rdfs:label "Convert text to lowercase";
-	skos:prefLabel "Convert text to lowercase";	
-	rdfs:comment """Data preparation method in which text is converted to lowercase.   Based on transformation of the same label in OpenRefine."""@en.
+prism:DataAnalysisActivity
+      a       owl:Class ;
+      rdfs:comment "The activity of performing some form of data analysis"@en ;
+      rdfs:label "Data analysis activity" ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:allValuesFrom prism:DataPreparationActivity ;
+                owl:onProperty prism:usedDataFrom
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:allValuesFrom prism:DataAnalysisMethod ;
+                owl:onProperty prism:analysisMethodUsed
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:allValuesFrom dbr:dataset ;
+                owl:onProperty prov:used
+              ] .
 
+prism:DataCollectionActivity
+      a       owl:Class ;
+      rdfs:comment "The activity of collecting data."@en ;
+      rdfs:label "Data Collection Activity" ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onDataRange owl:rational ;
+                owl:onProperty prism:dataCollectionStarted ;
+                owl:qualifiedCardinality
+                        "1"^^xsd:nonNegativeInteger
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onDataRange owl:rational ;
+                owl:onProperty prism:dataCollectionEnded ;
+                owl:qualifiedCardinality
+                        "1"^^xsd:nonNegativeInteger
+              ] .
 
-prism:toNumber 
-    rdf:type prism:DataPreparationMethod;
-	rdfs:label  "Convert text to number";
-	skos:prefLabel "Convert text to number";
-	rdfs:comment """Data preparation method in which the type of a datum is changed from text to number.   Based on transformation of the same label in OpenRefine."""@en.
-	
-	
-prism:toDate 
-    rdf:type prism:DataPreparationMethod;
-	rdfs:label "Convert text to  date";
-	skos:prefLabel "Convert text to  date";
-	rdfs:comment """Data preparation method in which the type of a datum is changed from text to date.   Based on transformation of the same label in OpenRefine."""@en.
-	
+prism:usedDataFrom
+      a       owl:ObjectProperty .
 
-prism:toText 
-    rdf:type prism:DataPreparationMethod;
-	rdfs:label "Convert to text";
-	skos:prefLabel "Convert to text";	
-	rdfs:comment """Data preparation method in which the type of a datum is changed to text.   Based on transformation of the same name in OpenRefine."""@en.
-
-	
-prism:textTransformation 
-    rdf:type prism:DataPreparationMethod;
-	rdfs:label "Transform text";
-	skos:prefLabel "Transform text";
-		rdfs:comment """Data preparation method in which text is transformed.   Based on transformation of the same name in OpenRefine."""@en.
-
-	
-prism:removeData 
-    rdf:type prism:DataPreparationMethod;
-	rdfs:label "Remove data";
-	skos:prefLabel "Remove data";	
-	rdfs:comment """Data preparation method in which data is removed from a dataset."""@en.
-
-
-prism:filterData 
-    rdf:type prism:DataPreparationMethod;
-	rdfs:label  "Filter data";
-	skos:prefLabel "Filter data";	
-	rdfs:comment """Data preparation method in which a subset of a a dataset is created based on filtering data in the original."""@en.
-
+prism:toNumber
+      a       prism:DataPreparationMethod ;
+      rdfs:comment "Data preparation method in which the type of a datum is changed from text to number.   Based on transformation of the same label in OpenRefine."@en ;
+      rdfs:label "Convert text to number" ;
+      skos:prefLabel "Convert text to number" .
